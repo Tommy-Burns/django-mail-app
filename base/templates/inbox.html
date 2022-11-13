@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+<!-- Background Image -->
+{% block bgImage %} {% endblock bgImage %}
+<!-- Content Begins -->
+{% block content %}
+<h1>Hello Inbox</h1>
+{% endblock content %}
+
+<!-- Sidebar -->
+{% block sidebar-content %}
+<center>Welcome <span>{{user.username}}</span></center>
+<a href="{% url 'logout' %}" class="btn btn-danger">Logout</a>
+{% endblock sidebar-content %}

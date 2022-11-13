@@ -1,0 +1,171 @@
+/* GENERAL */
+html,
+body {
+	height: 100%;
+	margin: 0;
+	max-width: 100%;
+	overflow: hidden;
+}
+/* ------------------------------------- */
+
+/* FOOTER */
+.wrapper {
+	min-height: 100%;
+	margin-bottom: -50px;
+}
+
+#footer,
+.push {
+	height: 50px;
+}
+/* ------------------------------------- */
+
+/* NAVBAR */
+#btn-nav {
+	float: right;
+	margin-right: 25px;
+	color: white;
+	cursor: pointer;
+}
+/* ------------------------------------- */
+
+/* MESSAGE PULSE */
+.pulse {
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	position: fixed;
+	right: 30px;
+	bottom: 75px;
+	padding: 5px;
+	animation: animate 3s linear infinite;
+}
+
+@keyframes animate {
+	0% {
+		box-shadow: 0 0 0 0 rgba(1, 152, 117, 0.7), 0 0 0 0 rgba(1, 152, 117, 0.7);
+	}
+	40% {
+		box-shadow: 0 0 0 30px rgba(255, 109, 74, 0), 0 0 0 0 rgba(1, 152, 117, 0.7);
+	}
+	80% {
+		box-shadow: 0 0 0 50px rgba(255, 109, 74, 0),
+			0 0 0 30px rgba(255, 109, 74, 0);
+	}
+	100% {
+		box-shadow: 0 0 0 0 rgba(255, 109, 74, 0), 0 0 0 30px rgba(255, 109, 74, 0);
+	}
+}
+
+/* TYPED JS */
+.block-position {
+	width: 80%;
+	position: absolute;
+	top: 30%;
+	left: 50%;
+	margin-right: -50%;
+	transform: translate(-50%, -50%);
+	text-align: center;
+}
+
+/* ------------------------------------- */
+
+/* LOGIN */
+#card-login {
+	width: 450px;
+}
+
+.login-border {
+	border-top: 0.4rem solid rgb(7, 135, 96);
+	border-top: 0.4rem solid rgb(7, 135, 96);
+	border-radius: 12px;
+}
+
+#btn-login {
+	font-size: 20px;
+	border-radius: 15px;
+}
+/* ------------------------------------- */
+
+/* CHANGE BOOTSTRAP GREEN FORM CONTROL THEME */
+.form-control:focus {
+	border-color: rgb(119, 201, 172);
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+
+.form-check-input:checked {
+	background-color: rgb(19, 171, 138) !important;
+	border: rgb(21, 145, 118) !important;
+	box-shadow: 0 0 8px rgba(21, 145, 118, 0.529) !important;
+}
+
+.form-check-input {
+	border: rgb(21, 145, 118) !important;
+	box-shadow: 0 0 8px rgba(21, 145, 118, 0.529) !important;
+}
+
+/* Sweet Alert */
+/* Center Messages */
+.swal-text {
+	text-align: center;
+}
+
+.swal-icon--success:before,
+.swal-icon--success:after,
+.swal-icon--success__hide-corners {
+	background: none !important;
+}
+
+/* Icon */
+.swal-icon--success {
+	border-color: rgba(33, 184, 161, 0.529);
+}
+
+/* Line(check) */
+.swal-icon--success__line {
+	background-color: rgba(33, 184, 161, 0.529);
+}
+
+/* Icon */
+.swal-icon--error {
+	border-color: rgba(215, 90, 90, 0.5);
+}
+
+/* Line(check) */
+.swal-icon--error__line {
+	background-color: rgba(215, 90, 90, 0.5);
+}
+
+/* Button */
+.swal-button {
+	padding: 7px 10px;
+	border-radius: 5px;
+	background-color: rgb(21, 145, 118);
+	font-size: 12px;
+	border: 1px solid rgb(21, 145, 118);
+}
+
+.swal-button:focus {
+	/* Remove silver default border */
+	box-shadow: none;
+}
+
+.swal-button:not([disabled]):hover {
+	padding: 7px 10px;
+	background: transparent;
+	color: rgb(21, 145, 118);
+	border: 1px solid rgb(21, 145, 118);
+}
+/* ----------------------------------------------- */
+
+/* ---------------------------------------------- */
+
+/* MEDIA SCREEN */
+
+@media screen and (max-width: 600px) {
+	#card-login {
+		width: 90%;
+	}
+}
+/* ----------------------- */

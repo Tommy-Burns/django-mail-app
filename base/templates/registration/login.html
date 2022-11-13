@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+<!-- Load Static -->
+{% load static %}
+
+<!-- Title -->
+{% block title %}QMail-Login{% endblock title %}
+
+<!-- Background Image -->
+{% block bgImage %}
+<style>
+	body {
+		background: linear-gradient(0deg, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),
+			url("{% static 'img/background-img.jpg' %}");
+		background-position: center 0px;
+		background-repeat: no-repeat;
+		background-attachment: fixed;
+		background-size: cover;
+	}
+</style>
+{% endblock bgImage %}
+
+<!-- Typed JS -->
+{% block typed %} {% endblock typed %}
+
+<!-- Sidebar -->
+{% block sidebar-content %}
+<a href="{% url 'home' %}" class="btn btn-secondary">Home</a>
+{% endblock sidebar-content %}
+
+<!-- Content Begins -->
+{% block content %}
+<div class="container mt-5" id="card-login">
+	<div class="card p-3 login-border">
+		<span class="mt-3 text-center text-pulse fs-4"
+			><strong>Restricted Access</strong></span
+		>
+		<form action="" autocomplete="off" novalidate method="post">
+			{% csrf_token %}
+			<div class="input-group mb-2 mt-4">
+				<input
+					type="text"
+					class="form-control"
+					name="username"
+					placeholder="Username"
+				/>
+			</div>
+			<div class="input-group mb-2 mt-4">
+				<input
+					type="password"
+					class="form-control"
+					id="password"
+					name="password"
+					placeholder="Passowrd"
+				/>
+			</div>
+			<div class="form-check form-switch">
+				<input
+					type="checkbox"
+					class="form-check-input"
+					onclick="myFunction()"
+					style="float: right"
+				/>
+			</div>
+			<div class="d-grid gap-2 mt-3">
+				<input
+					type="submit"
+					class="btn btn-success btn-sm mt-4 mb-3"
+					value="Login"
+					id="btn-login"
+				/>
+			</div>
+		</form>
+		<center class="mt-5 mb-5">
+			<i
+				class="bx bx-mail-send mt-2 mb-2"
+				id="login-watermark"
+				style="color: #bcbcbc; font-size: 150px; margin-left: 8px"
+			></i>
+		</center>
+	</div>
+</div>
+<br /><br /><br />
+{% endblock content %}
