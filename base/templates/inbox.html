@@ -2,13 +2,64 @@
 
 <!-- Background Image -->
 {% block bgImage %} {% endblock bgImage %}
-<!-- Content Begins -->
-{% block content %}
-<h1>Hello Inbox</h1>
-{% endblock content %}
 
 <!-- Sidebar -->
 {% block sidebar-content %}
 <center>Welcome <span>{{user.username}}</span></center>
 <a href="{% url 'logout' %}" class="btn btn-danger">Logout</a>
 {% endblock sidebar-content %}
+
+<!-- Content Begins -->
+{% block content %}
+<br />
+<!-- Dashboard -->
+<div class="container-fluid mt-3" style="width: 95%">
+	<!--  -->
+	<div class="hide" id="dashbaord">
+		{% include 'dashboard/dashboard.html' %}
+	</div>
+	<br />
+	<!-- Search Form -->
+	<form action="" class="hide" id="global-search" style="width: 55%">
+		<div class="input-group input-group-sm mb-3">
+			<input
+				type="text"
+				name="q"
+				id=""
+				placeholder="Search for..."
+				value="{{request.GET.q}}"
+				class="form-control input-sm"
+			/>
+			<button class="btn btn-secondary" title="Search">
+				<i class="fas fa-search"></i>
+			</button>
+			<a
+				href="{% url 'inbox' %}"
+				class="btn btn-dark"
+				style="margin-left: 2px"
+				title="Refresh"
+				><i class="fas fa-sync-alt"></i
+			></a>
+		</div>
+	</form>
+	<!-- Mail Table -->
+	<div class="col-lg-12 hide">
+		<div class="" style="margin-top: 5px">
+			<table class="table table-sm">
+				<thead class="table-secondary">
+					<tr>
+						<th style="width: 18%">Name</th>
+						<th style="width: 13%">Phone</th>
+						<th style="width: 18%">Email</th>
+						<th style="width: 18%">Subject</th>
+						<th style="width: 15%">Received On</th>
+						<th style="width: 10%">Status</th>
+						<th style="width: 8%; text-align: center" colspan="2">Actions</th>
+					</tr>
+				</thead>
+				<!-- Backend Data -->
+			</table>
+		</div>
+	</div>
+</div>
+{% endblock content %}

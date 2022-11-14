@@ -152,6 +152,9 @@
 		</footer>
 		<!-- End of Footer -->
 
+		<!-- INCLUDES -->
+		{% include 'modals/message.html' %}
+
 		<!-- Backend Message for Login -->
 		{% if form.errors %}
 		<script
@@ -165,6 +168,25 @@
 		</script>
 		{% endif %}
 		<!-- End Backend Message for Login -->
+
+		<!-- Backend Message for Successful message sent -->
+		{% for message in messages %}
+		<!--  -->
+		{% if message.tags == 'success' %}
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"
+			integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		></script>
+		<script>
+			const msg = "{{ message }}";
+			swal("Success", "Message sent successfully", "success");
+		</script>
+		{% endif %}
+		<!--  -->
+		{% endfor %}
+		<!-- End Backend Message for successful message sent -->
 
 		<!--Bootstrap JavaScript Bundle with Popper -->
 		<script
