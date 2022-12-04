@@ -49,3 +49,4 @@ $(document).ready(function() {
 });
 
 
+// Hide Sidebar when logout button is clicked

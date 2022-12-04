@@ -8,6 +8,21 @@ body {
 }
 /* ------------------------------------- */
 
+/* --------------- OTHERS --------------------- */
+#mini-dashboard{
+	display: none;
+}
+
+#btn-back{
+	float: left;
+
+}
+
+#input-bg{
+	background-color: #fff;
+}
+
+
 /* FOOTER */
 .wrapper {
 	min-height: 100%;
@@ -158,6 +173,30 @@ body {
 	border: 1px solid rgb(21, 145, 118);
 }
 /* ----------------------------------------------- */
+
+/* BOOTSTRAP PAGINATION */
+.page-item.active .page-link {
+	columns: white;
+	background-color: rgb(21, 145, 118);
+	border: 1px solid rgb(119, 201, 172);
+}
+
+.pagination > li > a {
+	background-color: rgb(248, 255, 253);
+	color: rgba(32, 108, 92, 0.744);
+}
+
+.pagination > li > a:focus,
+.pagination > li > a:hover,
+.pagination > span > a:focus,
+.pagination > span > a:hover {
+	color: rgb(7, 135, 96);
+	background-color: #fff;
+	border: 1px solid rgb(119, 201, 172);
+	box-shadow: none;
+}
+
+
 
 /* ---------------------------------------------- */
 

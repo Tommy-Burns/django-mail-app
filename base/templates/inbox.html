@@ -6,7 +6,13 @@
 <!-- Sidebar -->
 {% block sidebar-content %}
 <center>Welcome <span>{{user.username}}</span></center>
-<a href="{% url 'logout' %}" class="btn btn-danger">Logout</a>
+
+<div class="hide" id="mini-dashboard">
+		{% include 'dashboard/dashboard.html' %}
+	</div>
+<hr>
+<a data-bs-toggle="modal"
+		data-bs-target="#logoutModal" class="btn btn-outline-danger btn-sm">Logout</a>
 {% endblock sidebar-content %}
 
 <!-- Content Begins -->
@@ -15,7 +21,7 @@
 <!-- Dashboard -->
 <div class="container-fluid mt-3" style="width: 95%">
 	<!--  -->
-	<div class="hide" id="dashbaord">
+	<div class="hide" id="dashboard">
 		{% include 'dashboard/dashboard.html' %}
 	</div>
 	<br />
@@ -48,18 +54,111 @@
 			<table class="table table-sm">
 				<thead class="table-secondary">
 					<tr>
-						<th style="width: 18%">Name</th>
-						<th style="width: 13%">Phone</th>
-						<th style="width: 18%">Email</th>
-						<th style="width: 18%">Subject</th>
-						<th style="width: 15%">Received On</th>
+						<th style="width: 21%">Name</th>
+						<th style="width: 21%">Email</th>
+						<th style="width: 21%">Subject</th>
+						<th style="width: 19%">Received On</th>
 						<th style="width: 10%">Status</th>
 						<th style="width: 8%; text-align: center" colspan="2">Actions</th>
 					</tr>
 				</thead>
 				<!-- Backend Data -->
+				{% for mail in mails %}
+				<tr>
+					<td>{{ mail.name }}</td>
+					<td>{{ mail.email }}</td>
+					<td>{{ mail.subject }}</td>
+					<td>{{ mail.created | date:'d M Y, g:i a' }}</td>
+					{% if mail.status == 'Pending' %}
+					<td class="text-danger">{{ mail.status }}</td>
+					{% else %}
+					<td>{{ mail.status }}</td>
+					{% endif %}
+
+					<td>
+						<button
+							class="btn btn-secondary btn-sm btn-delete"
+							title="Delete Message"
+							data-bs-toggle="modal"
+							data-bs-target="#deleteModal{{ mail.id }}"
+						>
+							<i class="fas fa-trash-alt"></i>
+						</button>
+					</td>
+					<td>
+						<a
+							href="/read-message/{{ mail.id }}"
+							class="btn text-light btn-sm btn-delete"
+							title="Read Message"
+							style="background-color: rgb(17, 101, 81)"
+						>
+							<i class="fas fa-envelope"></i>
+						</a>
+					</td>
+				</tr>
+
+				<!-- Delete Message Template -->
+				{% include 'modals/delete.html' %}
+				{% empty %}
+				<h2 class="text-danger">No records found</h2>
+				{% endfor %}
+
 			</table>
 		</div>
+		<br />
 	</div>
+	<!-- Pagination -->
+	<nav>
+		{% if mails.has_other_pages %}
+		<ul class="pagination">
+			{% if mails.has_previous %}
+			<a
+				href="?page=1"
+				class="btn btn-outline-secondary mb-4"
+				style="border-radius: 2px; border: 1px solid rgb(26, 119, 93)"
+				>First</a
+			>
+			<li class="page-item">
+				<a href="?page={{ mails.previous_page_number }}" class="page-link"
+					><i class="fas fa-angle-double-left"></i
+				></a>
+			</li>
+			{% else %}
+			<li class="page-item disabled"></li>
+			{% endif %}
+			<!--  -->
+			{% for i in mails.paginator.page_range %}
+			<!--  -->
+			{% if mails.number == i %}
+			<li class="page-item active">
+				<span class="page-link">{{ i }} <span class="sr-only"></span> </span>
+			</li>
+
+			{% else %}
+			<li class="page-item">
+				<a href="?page={{ i }}" class="page-link">{{ i }}</a>
+			</li>
+			{% endif %}
+			<!--  -->
+			{% endfor %}
+			<!--  -->
+			{% if mails.has_next %}
+			<li class="page-item">
+				<a href="?page={{ mails.next_page_number }}" class="page-link"
+					><i class="fas fa-angle-double-right"></i
+				></a>
+			</li>
+			<a
+				href="?page={{ mails.paginator.num_pages }}"
+				class="btn btn-outline-secondary mb-4"
+				style="border-radius: 2px; border: 1px solid rgb(26, 119, 93)"
+				>Last</a
+			>
+			{% else %}
+			<li class="page-item disabled"></li>
+			{% endif %}
+		</ul>
+		{% endif %}
+	</nav>
 </div>
 {% endblock content %}

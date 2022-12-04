@@ -52,7 +52,7 @@
 							rgba(0, 0, 0, 0.35),
 							rgba(0, 0, 0, 0.35)
 						),
-						url("static/img/background-img.jpg");
+						url("{% static 'img/background-img.jpg' %}");
 					background-position: center 0px;
 					background-repeat: no-repeat;
 					background-attachment: fixed;
@@ -68,7 +68,7 @@
 						<a
 							class="navbar-brand flex-grow-1"
 							style="color: white; margin-left: 25px"
-							href=""
+							href="/"
 						>
 							{% block nav-content %}
 							<i
@@ -154,6 +154,7 @@
 
 		<!-- INCLUDES -->
 		{% include 'modals/message.html' %}
+		{% include 'modals/logout.html' %}
 
 		<!-- Backend Message for Login -->
 		{% if form.errors %}
@@ -181,7 +182,7 @@
 		></script>
 		<script>
 			const msg = "{{ message }}";
-			swal("Success", "Message sent successfully", "success");
+			swal("Success", `${msg}`, "success");
 		</script>
 		{% endif %}
 		<!--  -->
