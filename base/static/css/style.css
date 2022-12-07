@@ -31,6 +31,19 @@ body {
 }
 
 
+/* --------------- AUTO LOG OUT SECTION --------------------- */
+.note-warning{
+	font-size: 15px;
+}
+
+#btn-30, #btn-ok-logout{
+	width: 70px;
+}
+
+.note-info{
+	font-size: 20px;
+}
+
 /* --------------- OTHERS --------------------- */
 #mini-dashboard{
 	display: none;

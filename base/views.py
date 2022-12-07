@@ -3,6 +3,7 @@ from django.views.decorators.cache import cache_control
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.core.paginator import Paginator
+from django.contrib.auth import logout
 
 from base.forms import CustomerForm
 from django.contrib import messages
@@ -108,3 +109,11 @@ def error_500(request):
 
 def error_404(request, exception):
     return render(request, '404.html')
+
+
+# Auto log out
+def AutoLogoutUser(request):
+    logout(request)
+    request.user = None
+    messages.info(request, "Auto log out successful")
+    return HttpResponseRedirect('/inbox')

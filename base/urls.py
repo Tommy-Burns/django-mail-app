@@ -12,6 +12,8 @@ urlpatterns = [
          views.delete_message, name='delete-message'),
     # View Message
     path('read-message/<str:mail_id>/', views.read_message, name='read-message'),
-    # Markz Message
+    # Mark Message
     path('mark-message/', views.mark_message, name='mark-message'),
+    # Mark to auto log out
+    path('autologout/', views.AutoLogoutUser, name='autologout'),
 ]

@@ -5,19 +5,8 @@
 <!-- Title -->
 {% block title %}QMail-Login{% endblock title %}
 
-<!-- Background Image -->
-{% block bgImage %}
-<style>
-	body {
-		background: linear-gradient(0deg, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),
-			url("{% static 'img/background-img.jpg' %}");
-		background-position: center 0px;
-		background-repeat: no-repeat;
-		background-attachment: fixed;
-		background-size: cover;
-	}
-</style>
-{% endblock bgImage %}
+<!-- Auto Logout disabled -->
+{% block auto-logout %}{% endblock auto-logout %}
 
 <!-- Typed JS -->
 {% block typed %} {% endblock typed %}

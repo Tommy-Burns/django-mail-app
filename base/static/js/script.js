@@ -49,4 +49,18 @@ $(document).ready(function() {
 });
 
 
-// Hide Sidebar when logout button is clicked
+// Prompt user about automatic log out every 1 hour
+setTimeout(function() {
+	var notice = document.querySelector('#warning');
+	if (notice) {
+		notice.click();
+	}
+}, 1 * 10000);
+
+// Prompt user about automatic log out every 1 hour
+setTimeout(function() {
+	var action = document.querySelector('#info');
+	if (action) {
+		action.click();
+	}
+}, 1 * 15000);

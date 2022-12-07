@@ -1,0 +1,37 @@
+{% extends 'modals/baseModal.html' %}
+
+<!-- Id -->
+{% block modal-id %} id="warningModal"{% endblock modal-id %}
+
+<!-- Title -->
+{% block modal-title %}
+<i class="fas fa-exclamation-triangle"></i>&nbsp;&nbsp; Attention!!!
+{% endblock modal-title%}
+
+<!-- Modal Body -->
+{% block modal-body %}
+<div class="text-center text-secondary" id="stack">
+    <span class="fa-stack fa-3x">
+        <i class="fas fa-cloud fa-stack-2x"></i>
+        <div class="fas fa-exclamation-triangle fa-stack-1x fa-inverse"></div>
+    </span>
+</div>
+
+<div class="mt-3">
+    <span>The system will log you out in 10 minutes.....</span>
+    <div class="container note-warning mt-3">
+        Click the <span class="text-success"><strong>+2 hours</strong></span> button below if you want to extend your session for 2 hours.
+    </div>
+</div>
+{% endblock modal-body %}
+
+
+
+<!-- Modal Footer -->
+{% block modal-footer %}
+<a onclick="window.location.reload();" class="btn btn-secondary btn-sm" id="btn-30m">+2 hrs</a>
+<button type="button" id="btn-ok-logout" class="btn btn-outline-dark btn-sm" data-bs-toggle="modal">Ok</button>
+{% endblock modal-footer %}
+
+<!-- Deny Close Button -->
+{% block close %}{% endblock close %}

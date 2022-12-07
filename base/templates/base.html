@@ -153,10 +153,22 @@
 		</footer>
 		<!-- End of Footer -->
 
+		<!-- Auto Log out -->
+		{% block auto-logout %}
+		{% if user.is_authenticated %}
+			<!-- Button to call logout warning modal -->
+			<button id="warning" class="btn" data-bs-toggle="modal" data-bs-target="#warningModal" style="display: none;"></button>
+			<!-- Auto log out button -->
+			<a href="{% url 'autologout' %}" id="info" class="btn" style="display: none;"></a>
+		{% endif %}
+		{% endblock auto-logout %}
+
 		<!-- INCLUDES -->
 		{% include 'modals/message.html' %}
 		{% include 'modals/logout.html' %}
 		{% include 'modals/reply.html' %}
+		{% include 'modals/logoutInfo.html' %}
+		{% include 'modals/logoutWarning.html' %}
 
 		<!-- Backend Message for Login -->
 		{% if form.errors %}
@@ -189,6 +201,27 @@
 		{% endif %}
 		<!--  -->
 		{% endfor %}
+
+		<!-- Auto Log out user -->
+		{% for message in messages %}
+		<!--  -->
+			{% if message.tags == 'info' %}
+			<!-- Jquery -->
+				<script
+				src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+				integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+				crossorigin="anonymous"
+				referrerpolicy="no-referrer"
+			></script>
+			<script>
+				$(document).ready(function() {
+					$("#infoModal").modal('show');
+				});
+			</script>
+			{% endif %}
+		<!--  -->
+		{% endfor %}
+
 		<!-- End Backend Message for successful message sent -->
 
 		<!--Bootstrap JavaScript Bundle with Popper -->
