@@ -70,7 +70,7 @@ while True:
 
 ## Author
 
-LinkedIn - [Thomas Burns Botchwey](www.linkedin.com/in/tbbotchwey)
+LinkedIn - [Thomas Burns Botchwey](https://www.linkedin.com/in/tbbotchwey/)
 
 ## Credit
 
