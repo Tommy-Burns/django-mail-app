@@ -39,6 +39,7 @@
 		<link rel="stylesheet" href="{% static 'css/style.css' %}" />
 
 		<title>{% block title %}{% endblock title %}</title>
+		{% block bscript %}{% endblock bscript %}
 	</head>
 	<body>
 		<!-- Body -->
@@ -155,6 +156,7 @@
 		<!-- INCLUDES -->
 		{% include 'modals/message.html' %}
 		{% include 'modals/logout.html' %}
+		{% include 'modals/reply.html' %}
 
 		<!-- Backend Message for Login -->
 		{% if form.errors %}

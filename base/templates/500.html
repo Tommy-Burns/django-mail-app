@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+<!-- Background Denied -->
+{% block bgImage %}{% endblock bgImage %}
+
+<!-- Typed JS Denied -->
+{% block typed %}{% endblock typed %}
+
+<!-- Title -->
+{% block title %}{% endblock title %}
+
+<!-- Sidebar Content -->
+{% block sidebar-content %}
+<a href="{% url 'inbox' %}" class="btn btn-secondary">Go to Inbox</a>
+{% endblock sidebar-content %}
+
+
+
+<!-- Content -->
+{% block content %}
+<div class="modal-body text-center error">
+    <div class="text-center text-danger error-body">
+        {% block error-body %}
+        <span class="fa-stack fa-8x">
+            <i class="fas fa-ban fa-stack-2x"></i>
+            <i class="fas fa-envelope fa-stack-1x fa-inverse text-dark"></i>
+        </span>
+        {% endblock error-body %}
+    </div>
+    <h6 class="text-danger mt-4 error-txt2">{% block reason %}Message does not exists!{% endblock reason %}</h6>
+    <div class="mt-3 error-txt1">
+        {% block note %}<span>This message was probably deleted from the inbox.</span>{% endblock note %}
+    </div>
+</div>
+{% endblock content %}

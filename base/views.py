@@ -87,3 +87,24 @@ def read_message(request, mail_id):
         return render(request, 'mail.html', {
             'mail': mail,
         })
+
+
+@login_required(login_url='login')
+@cache_control(no_cache=True, must_validate=True, no_store=True)
+def mark_message(request):
+    if request.method == 'POST':
+        mail = Customer.objects.get(id=request.POST.get('id'))
+        if mail != None:
+            mail.status = request.POST.get('status')
+            mail.save()
+            messages.success(request, "Message marked as read")
+            return HttpResponseRedirect('/inbox')
+
+
+# ERROR MESSAGES
+def error_500(request):
+    return render(request, '500.html')
+
+
+def error_404(request, exception):
+    return render(request, '404.html')

@@ -1,0 +1,35 @@
+{% extends 'modals/baseModal.html' %}
+
+<!-- Id -->
+{% block modal-id %} id="markModal{{ mail.id }}"{% endblock modal-id %}
+
+<!-- Title -->
+{% block modal-title %}
+<i class="fas fa-envelope"></i>&nbsp;&nbsp; Mark as Read
+<!--  -->
+{% endblock modal-title%}
+<!-- Form -->
+{% block modal-body %}
+<div class="text-center mt-2 mb-3" id="stack" style="color: rgb(23, 106, 99);">
+    <span class="fa-stack fa-3x">
+        <i class="fas fa-cloud fa-stack-2x"></i>
+        <i class="fas fa-user-check fa-stack-1x fa-inverse"></i>
+    </span>
+</div>
+<span id="mark-ask">Do you want to mark this message as read?</span>
+<br class="mb-2">
+{% endblock modal-body %}
+
+<!-- Modal Footer -->
+{% block modal-footer %}
+<a
+	href="{% url 'inbox' %}"
+	class="btn btn-outline-dark btn-sm btn-modal"
+	>No</a
+>
+<button class="btn text-light btn-sm btn-modal" style="background-color: rgb(23, 106, 99);">Yes</button>
+{% endblock modal-footer %}
+
+<!-- Deny clse button -->
+{% block close %}
+{% endblock close %}

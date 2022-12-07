@@ -11,6 +11,7 @@ urlpatterns = [
     path('delete-message/<str:mail_id>/',
          views.delete_message, name='delete-message'),
     # View Message
-    path('read-message/<str:mail_id>/',
-         views.read_message, name='read-message'),
+    path('read-message/<str:mail_id>/', views.read_message, name='read-message'),
+    # Markz Message
+    path('mark-message/', views.mark_message, name='mark-message'),
 ]

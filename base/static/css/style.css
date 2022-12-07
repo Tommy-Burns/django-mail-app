@@ -8,6 +8,29 @@ body {
 }
 /* ------------------------------------- */
 
+/* -------------- Error Section ----------------*/
+/* Positon */
+.error{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-right: -50%;
+	transform: translate(-50%, -50%);
+}
+
+.error-txt1{
+	font-size: 19px;
+}
+
+.error-txt2{
+	font-size: 22px;
+}
+
+.error-404{
+	font-size: 150px;
+}
+
+
 /* --------------- OTHERS --------------------- */
 #mini-dashboard{
 	display: none;
@@ -22,6 +45,13 @@ body {
 	background-color: #fff;
 }
 
+
+#reply{
+	width: 110px;
+	float: left;
+	margin-left: 5px;
+	background-color: rgb(21, 145, 118);
+}
 
 /* FOOTER */
 .wrapper {

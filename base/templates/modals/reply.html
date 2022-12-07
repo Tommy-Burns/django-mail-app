@@ -1,0 +1,65 @@
+{% extends 'modals/baseModal.html' %}
+
+<!-- Id -->
+{% block modal-id %} id="replyModal{{ mail.id }}"{% endblock modal-id %}
+
+<!-- Title -->
+{% block modal-title %}
+<i class="fas fa-reply"></i>&nbsp;&nbsp; Reply Message
+<!--  -->
+{% endblock modal-title%}
+<!-- Form -->
+{% block form %}
+    <form action="" method="post" class="was-validated" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="modal-body">
+            <div class="">
+                <strong>To: <span class="text-success">{{ mail.name }}</span></strong>
+            </div>
+            <hr>
+            <div style="display: none;" class="form-group input-group-sm mb-3">
+                <input type="email" name="email" value="{{ mail.email }}" class="form-control">
+            </div>
+            <!-- CC -->
+            <div style="display: none;" class="form-group mb-2">
+                <input type="email" name="cc" placeholder="CC {optional}" class="form-control">
+            </div>
+
+            <div class="mb-3">
+                <textarea name="message" placeholder="Your Message..."  rows="5" class="form-control txt-sm" required></textarea>
+                <div class="invalid-feedback">Required</div>
+            </div>
+
+            <!-- Select Options -->
+            <div class="mb-3">
+                <select class="form-select" name="subject" required>
+                    <option value="">Select a Subject</option>
+                    <option disabled></option>
+                    <option value="Reply">Reply:</option>
+                    <option value="Audit">Audit:</option>
+                    <option value="Hiring">Hiring:</option>
+                    <option value="Payments">Payments:</option>
+                </select>
+                <div class="invalid-feedback">Required</div>
+            </div>
+            <div class="form-group mb-3">
+                <input type="file" class="form-control" name="attach" title="Optional Attachment" multiple>
+            </div>
+            <div class="mb-3" style="float: right;">
+                <input type="submit" name="submit" class="btn btn-outline-success btn-sm btn-modal send-email" value="Send" style="margin-right: -5px;">&nbsp;&nbsp;
+                <button
+					
+					class="btn btn-secondary btn-sm btn-modal"
+					data-bs-dismiss="modal"
+				>
+					Close</button>
+            </div>
+        </div>
+    </form>
+{% endblock form %}
+
+
+
+<!-- Deny clse button -->
+{% block close %}
+{% endblock close %}

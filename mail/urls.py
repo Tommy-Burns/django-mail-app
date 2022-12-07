@@ -22,9 +22,13 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('base.urls')),
-    
+
     # Login / Logout
     path('login/', include('django.contrib.auth.urls')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
+handler500 = 'base.views.error_500'
+handler404 = 'base.views.error_404'
